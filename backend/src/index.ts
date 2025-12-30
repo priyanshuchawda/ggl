@@ -42,6 +42,10 @@ app.use(requestLogger);
 // API Routes
 app.use('/api/v1/health', healthRouter);
 
+// Import chat router
+import chatRouter from './api/routes/chat.js';
+app.use('/api/v1/chat', chatRouter);
+
 // 404 handler
 app.use(notFoundHandler);
 
