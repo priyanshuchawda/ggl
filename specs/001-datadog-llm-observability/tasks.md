@@ -46,16 +46,16 @@ Based on plan.md project structure:
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T011 Initialize Gemini client wrapper in backend/src/llm/client.ts with API key configuration
-- [ ] T012 Setup Datadog dd-trace initialization in backend/src/index.ts with environment-based configuration
-- [ ] T013 Create TypeScript interfaces for telemetry events in backend/src/observability/types.ts matching data-model.md
-- [ ] T014 Implement cost calculation utility in backend/src/observability/cost-calculator.ts with model pricing
-- [ ] T015 Create Express application setup in backend/src/index.ts with middleware registration
-- [ ] T016 [P] Setup environment configuration loading in backend/src/config.ts with validation
-- [ ] T017 [P] Create error handling middleware in backend/src/api/middleware/error-handler.ts
-- [ ] T018 [P] Create request logging middleware in backend/src/api/middleware/logger.ts
-- [ ] T019 Create health check endpoint in backend/src/api/routes/health.ts
-- [ ] T020 Setup Jest test framework configuration in backend/jest.config.js
+- [X] T011 Initialize Gemini client wrapper in backend/src/llm/client.ts with API key configuration
+- [X] T012 Setup Datadog dd-trace initialization in backend/src/index.ts with environment-based configuration
+- [X] T013 Create TypeScript interfaces for telemetry events in backend/src/observability/types.ts matching data-model.md
+- [X] T014 Implement cost calculation utility in backend/src/observability/cost-calculator.ts with model pricing
+- [X] T015 Create Express application setup in backend/src/index.ts with middleware registration
+- [X] T016 [P] Setup environment configuration loading in backend/src/config.ts with validation
+- [X] T017 [P] Create error handling middleware in backend/src/api/middleware/error-handler.ts
+- [X] T018 [P] Create request logging middleware in backend/src/api/middleware/logger.ts
+- [X] T019 Create health check endpoint in backend/src/api/routes/health.ts
+- [X] T020 Setup Jest test framework configuration in backend/jest.config.js
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
