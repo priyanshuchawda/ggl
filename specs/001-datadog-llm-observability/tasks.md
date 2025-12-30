@@ -27,16 +27,16 @@ Based on plan.md project structure:
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Initialize Node.js 20.x project with TypeScript 5.3+ configuration in backend/
-- [ ] T002 Install core dependencies: @google/genai, dd-trace, @datadog/datadog-api-client, zod, express in backend/package.json
-- [ ] T003 [P] Configure TypeScript compiler options in backend/tsconfig.json with strict mode enabled
-- [ ] T004 [P] Setup ESLint and Prettier configuration in backend/.eslintrc.js and backend/.prettierrc
-- [ ] T005 [P] Create project directory structure: backend/src/{llm,observability,api}, backend/tests/, config/datadog/
-- [ ] T006 [P] Create environment variable template in backend/config/env.example with all required keys
-- [ ] T007 [P] Setup Docker configuration in Dockerfile and docker-compose.yml for local development
-- [ ] T008 [P] Create .gitignore with Node.js and environment file exclusions
-- [ ] T009 [P] Add MIT license file in LICENSE
-- [ ] T010 [P] Create README.md with project overview and quickstart instructions
+- [X] T001 Initialize Node.js 20.x project with TypeScript 5.3+ configuration in backend/
+- [X] T002 Install core dependencies: @google/genai, dd-trace, @datadog/datadog-api-client, zod, express in backend/package.json
+- [X] T003 [P] Configure TypeScript compiler options in backend/tsconfig.json with strict mode enabled
+- [X] T004 [P] Setup ESLint and Prettier configuration in backend/.eslintrc.js and backend/.prettierrc
+- [X] T005 [P] Create project directory structure: backend/src/{llm,observability,api}, backend/tests/, config/datadog/
+- [X] T006 [P] Create environment variable template in backend/config/env.example with all required keys
+- [X] T007 [P] Setup Docker configuration in Dockerfile and docker-compose.yml for local development
+- [X] T008 [P] Create .gitignore with Node.js and environment file exclusions
+- [X] T009 [P] Add MIT license file in LICENSE
+- [X] T010 [P] Create README.md with project overview and quickstart instructions
 
 ---
 
