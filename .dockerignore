@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Documentation (already in repo)
+docs/
+*.md
+
+# Specs and planning
+specs/
+.specify/
+
+# Datadog docs
+datadog_docs/
+datadog_ts_docs/
+gemini_docs/
+
+# Sensitive info
+info.md
