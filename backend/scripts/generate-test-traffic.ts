@@ -4,12 +4,16 @@ interface LoadTestConfig {
   requests: number;
   durationMinutes: number;
   scenarios: string[];
+  port: number;
+  datadogSite: string;
 }
 
 const DEFAULT_CONFIG: LoadTestConfig = {
   requests: 100,
   durationMinutes: 5,
   scenarios: ['simple_chat', 'grounding', 'errors'],
+  port: 3000,
+  datadogSite: 'us5.datadoghq.com',
 };
 
 // Test scenarios
@@ -43,8 +47,8 @@ const SCENARIOS = {
   ],
 };
 
-async function sendChatRequest(message: string): Promise<any> {
-  const url = `http://localhost:${config.port}/api/v1/chat`;
+async function sendChatRequest(message: string, port: number): Promise<any> {
+  const url = `http://localhost:${port}/api/v1/chat`;
 
   const response = await fetch(url, {
     method: 'POST',
@@ -100,7 +104,7 @@ async function generateLoad(config: LoadTestConfig): Promise<void> {
 
     try {
       const start = Date.now();
-      const response = await sendChatRequest(message);
+      const response = await sendChatRequest(message, config.port);
       const latency = Date.now() - start;
 
       successCount++;
@@ -136,7 +140,7 @@ async function generateLoad(config: LoadTestConfig): Promise<void> {
   console.log(`💵 Average Cost per Request: $${(totalCost / successCount).toFixed(6)}`);
   console.log('='.repeat(60));
   console.log('\n✅ Load test complete!');
-  console.log(`\n🔗 View metrics: https://app.${config.datadog.site}/dashboard/vza-u2j-7nm\n`);
+  console.log(`\n🔗 View metrics: https://app.${config.datadogSite}/dashboard/vza-u2j-7nm\n`);
 }
 
 // Parse command line arguments

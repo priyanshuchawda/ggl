@@ -1,6 +1,27 @@
 version: '3.8'
 
 services:
+  # Datadog Agent for collecting metrics and traces
+  datadog-agent:
+    image: gcr.io/datadoghq/agent:latest
+    environment:
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_SITE=${DD_SITE:-datadoghq.com}
+      - DD_APM_ENABLED=true
+      - DD_APM_NON_LOCAL_TRAFFIC=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
+      - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
+      - DD_PROCESS_AGENT_ENABLED=true
+    ports:
+      - "8126:8126"  # APM
+      - "8125:8125/udp"  # DogStatsD
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+    restart: unless-stopped
+
   backend:
     build:
       context: .
@@ -11,9 +32,14 @@ services:
       - backend/.env
     environment:
       - NODE_ENV=development
+      - DD_AGENT_HOST=datadog-agent
+      - DD_TRACE_AGENT_PORT=8126
+      - DD_DOGSTATSD_PORT=8125
     volumes:
       - ./backend/src:/app/src
       - ./backend/config:/app/config
+    depends_on:
+      - datadog-agent
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/api/v1/health"]

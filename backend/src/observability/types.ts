@@ -121,6 +121,24 @@ export interface UsageMetadata {
 
 // Model pricing (USD per million tokens)
 export const MODEL_PRICING = {
+  'gemini-2.5-flash-lite': {
+    input: 0.0,  // Free tier
+    output: 0.0, // Free tier
+    thinking: 0.0,
+    tool: 0.0,
+  },
+  'gemini-1.5-flash': {
+    input: 0.075,
+    output: 0.3,
+    thinking: 0.0,
+    tool: 0.0,
+  },
+  'gemini-2.0-flash-lite': {
+    input: 0.0,  // Free tier
+    output: 0.0, // Free tier
+    thinking: 0.0,
+    tool: 0.0,
+  },
   'gemini-2.5-flash': {
     input: 0.075,
     output: 0.3,

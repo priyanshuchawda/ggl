@@ -12,8 +12,8 @@ export function calculateCost(
   usage: UsageMetadata,
   model: string
 ): CostBreakdown {
-  // Default to gemini-2.5-flash if model not found
-  const modelKey = (model in MODEL_PRICING ? model : 'gemini-2.5-flash') as ModelName;
+  // Default to gemini-2.5-flash-lite if model not found
+  const modelKey = (model in MODEL_PRICING ? model : 'gemini-2.5-flash-lite') as ModelName;
   const pricing = MODEL_PRICING[modelKey];
 
   const inputCost = (usage.promptTokenCount / 1_000_000) * pricing.input;
@@ -53,7 +53,7 @@ export function estimateCost(
   model: string,
   type: 'input' | 'output' | 'thinking' = 'output'
 ): number {
-  const modelKey = (model in MODEL_PRICING ? model : 'gemini-2.5-flash') as ModelName;
+  const modelKey = (model in MODEL_PRICING ? model : 'gemini-2.5-flash-lite') as ModelName;
   const pricing = MODEL_PRICING[modelKey];
 
   const rate = type === 'input' ? pricing.input : type === 'thinking' ? pricing.thinking : pricing.output;

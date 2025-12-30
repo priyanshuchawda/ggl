@@ -163,6 +163,7 @@ export async function captureTelemetry<T>(
 
 /**
  * Emit metrics to Datadog using dogstatsd
+ * Note: Using type assertion to work around dd-trace type definitions
  */
 function emitMetrics(telemetry: LLMTelemetryEvent): void {
   const tags = [
@@ -171,26 +172,28 @@ function emitMetrics(telemetry: LLMTelemetryEvent): void {
     `env:${telemetry.tags.env}`,
   ];
 
+  const dogstatsd = tracer.dogstatsd as any;
+
   // Token metrics
-  tracer.dogstatsd.histogram('llm.tokens.prompt', telemetry.promptTokenCount, tags);
-  tracer.dogstatsd.histogram('llm.tokens.completion', telemetry.candidatesTokenCount, tags);
-  tracer.dogstatsd.histogram('llm.tokens.total', telemetry.totalTokenCount, tags);
+  dogstatsd.histogram('llm.tokens.prompt', telemetry.promptTokenCount, tags);
+  dogstatsd.histogram('llm.tokens.completion', telemetry.candidatesTokenCount, tags);
+  dogstatsd.histogram('llm.tokens.total', telemetry.totalTokenCount, tags);
 
   // Performance metrics
-  tracer.dogstatsd.histogram('llm.latency', telemetry.latencyMs, tags);
+  dogstatsd.histogram('llm.latency', telemetry.latencyMs, tags);
 
   // Cost metrics
-  tracer.dogstatsd.histogram('llm.cost.total', telemetry.totalCost, tags);
+  dogstatsd.histogram('llm.cost.total', telemetry.totalCost, tags);
 
   // Success/error counters
   if (telemetry.success) {
-    tracer.dogstatsd.increment('llm.requests.success', tags);
+    dogstatsd.increment('llm.requests.success', tags);
   } else {
-    tracer.dogstatsd.increment('llm.requests.error', tags);
+    dogstatsd.increment('llm.requests.error', tags);
   }
 
   // Tool usage
   if (telemetry.groundingUsed) {
-    tracer.dogstatsd.increment('llm.tools.grounding', tags);
+    dogstatsd.increment('llm.tools.grounding', tags);
   }
 }
