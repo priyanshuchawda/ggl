@@ -174,21 +174,6 @@ gcloud run deploy llm-obs-demo \
 - [Demo Script](docs/DEMO_SCRIPT.md)
 - [API Documentation](specs/001-datadog-llm-observability/contracts/openapi.yaml)
 
-## 🎥 Demo Video
-
-[Link to 3-minute demo video]
-
-## 🏆 Hackathon Submission
-
-This project was created for the **Google Cloud Partnerships Hackathon: Datadog Challenge** (Nov 17 - Dec 31, 2025).
-
-**Challenge Requirements Met**:
-- ✅ Uses both Google Cloud (Gemini) and Datadog
-- ✅ Innovative observability strategy for AI applications
-- ✅ Open source (MIT License)
-- ✅ Deployed and publicly accessible
-- ✅ Complete documentation and demo video
-
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
