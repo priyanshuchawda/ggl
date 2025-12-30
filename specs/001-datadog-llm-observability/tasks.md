@@ -95,11 +95,11 @@ Based on plan.md project structure:
 
 #### Dashboard Creation (FR-006, FR-007, FR-010)
 
-- [ ] T036 [US1] Create dashboard configuration JSON in config/datadog/dashboard.json with overview section
-- [ ] T037 [US1] Add performance widgets (latency P50/P95/P99, request volume) to config/datadog/dashboard.json
-- [ ] T038 [US1] Add LLM metrics widgets (token consumption, cost breakdown) to config/datadog/dashboard.json
-- [ ] T039 [US1] Create dashboard deployment script in scripts/setup-datadog.ts using @datadog/datadog-api-client
-- [ ] T040 [US1] Add time range selector and grouping tags to dashboard configuration
+- [X] T036 [US1] Create dashboard configuration JSON in config/datadog/dashboard.json with overview section
+- [X] T037 [US1] Add performance widgets (latency P50/P95/P99, request volume) to config/datadog/dashboard.json
+- [X] T038 [US1] Add LLM metrics widgets (token consumption, cost breakdown) to config/datadog/dashboard.json
+- [X] T039 [US1] Create dashboard deployment script in scripts/setup-datadog.ts using @datadog/datadog-api-client
+- [X] T040 [US1] Add time range selector and grouping tags to dashboard configuration
 
 #### Health & Metrics Endpoints
 
