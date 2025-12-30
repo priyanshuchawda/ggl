@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Telemetry Event Schemas",
+  "description": "JSON schemas for LLM telemetry events sent to Datadog",
+  "definitions": {
+    "LLMTelemetryEvent": {
+      "type": "object",
+      "required": ["requestId", "timestamp", "model", "totalTokenCount", "latencyMs", "success"],
+      "properties": {
+        "requestId": { "type": "string", "format": "uuid" },
+        "timestamp": { "type": "number" },
+        "conversationId": { "type": "string", "format": "uuid" },
+        "userId": { "type": "string" },
+        "featureType": { 
+          "type": "string", 
+          "enum": ["chat", "grounding", "url_context", "structured_output", "streaming"] 
+        },
+        "model": { "type": "string" },
+        "promptTokenCount": { "type": "number", "minimum": 0 },
+        "candidatesTokenCount": { "type": "number", "minimum": 0 },
+        "totalTokenCount": { "type": "number", "minimum": 0 },
+        "latencyMs": { "type": "number", "minimum": 0 },
+        "success": { "type": "boolean" },
+        "totalCost": { "type": "number", "minimum": 0 }
+      }
+    }
+  }
+}

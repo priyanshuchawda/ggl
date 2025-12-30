@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: LLM Observability Demo API
+  description: REST API for demonstrating LLM application monitoring with Datadog
+  version: 1.0.0
+
+servers:
+  - url: https://llm-observability-demo.run.app
+    description: Production
+  - url: http://localhost:3000
+    description: Local development
+
+paths:
+  /api/v1/chat:
+    post:
+      summary: Send a chat message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message]
+              properties:
+                message:
+                  type: string
+                  minLength: 1
+                conversationId:
+                  type: string
+                  format: uuid
+                stream:
+                  type: boolean
+                  default: false
+                enableGrounding:
+                  type: boolean
+                  default: false
+      responses:
+        200:
+          description: Success
