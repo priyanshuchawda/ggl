@@ -71,9 +71,9 @@ Based on plan.md project structure:
 
 #### Core Telemetry Capture (FR-001, FR-002, FR-003, FR-004, FR-005)
 
-- [ ] T021 [P] [US1] Create telemetry capture middleware in backend/src/llm/telemetry-capture.ts to wrap Gemini API calls
-- [ ] T022 [P] [US1] Implement telemetry buffer with 10MB cap and circular queue in backend/src/observability/telemetry-buffer.ts
-- [ ] T023 [P] [US1] Create conversation tracker for multi-turn sessions in backend/src/observability/conversation-tracker.ts
+- [X] T021 [P] [US1] Create telemetry capture middleware in backend/src/llm/telemetry-capture.ts to wrap Gemini API calls
+- [X] T022 [P] [US1] Implement telemetry buffer with 10MB cap and circular queue in backend/src/observability/telemetry-buffer.ts
+- [X] T023 [P] [US1] Create conversation tracker for multi-turn sessions in backend/src/observability/conversation-tracker.ts
 - [ ] T024 [US1] Implement Datadog metrics emission in backend/src/observability/metrics.ts using dd-trace dogstatsd
 - [ ] T025 [US1] Create custom span wrapper for LLM operations in backend/src/llm/telemetry-capture.ts with token tagging
 - [ ] T026 [US1] Implement exponential backoff retry logic in backend/src/observability/telemetry-buffer.ts for Datadog failures
@@ -81,10 +81,10 @@ Based on plan.md project structure:
 
 #### Chat API Endpoint (Primary feature showcase)
 
-- [ ] T028 [US1] Create chat request/response schemas using Zod in backend/src/api/schemas/chat.ts
-- [ ] T029 [US1] Implement POST /api/v1/chat endpoint in backend/src/api/routes/chat.ts with non-streaming support
-- [ ] T030 [US1] Integrate Gemini client with telemetry capture in chat endpoint
-- [ ] T031 [US1] Add conversation ID generation and tracking in backend/src/api/routes/chat.ts
+- [X] T028 [US1] Create chat request/response schemas using Zod in backend/src/api/schemas/chat.ts
+- [X] T029 [US1] Implement POST /api/v1/chat endpoint in backend/src/api/routes/chat.ts with non-streaming support
+- [X] T030 [US1] Integrate Gemini client with telemetry capture in chat endpoint
+- [X] T031 [US1] Add conversation ID generation and tracking in backend/src/api/routes/chat.ts
 - [ ] T032 [US1] Implement streaming response support for POST /api/v1/chat in backend/src/api/routes/chat.ts
 
 #### Feature-Specific Telemetry (FR-003)
